@@ -1,0 +1,58 @@
+wait(0.5)
+
+local gui = Instance.new("ScreenGui")
+local mainFrame = Instance.new("Frame")
+local statusLabel = Instance.new("TextLabel")
+local infoFrame = Instance.new("Frame")
+local infoLabel = Instance.new("TextLabel")
+local creditsLabel = Instance.new("TextLabel")
+
+gui.Parent = game.CoreGui
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+mainFrame.Parent = gui
+mainFrame.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
+mainFrame.Position = UDim2.new(1, -370 * 0.75, 1, -160 * 0.75)  
+mainFrame.Size = UDim2.new(0, 370 * 0.75, 0, 160 * 0.75)
+mainFrame.Active = true
+mainFrame.Draggable = false
+
+statusLabel.Parent = mainFrame
+statusLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+statusLabel.Text = "Anti AFK"
+statusLabel.TextColor3 = Color3.new(0, 1, 1)
+statusLabel.TextSize = 22
+statusLabel.Font = Enum.Font.DenkOne  -- Set to DenkOne font
+statusLabel.Size = UDim2.new(1, 0, 0, 30)
+
+infoFrame.Parent = mainFrame
+infoFrame.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+infoFrame.Position = UDim2.new(0, 0, 0.2, 0)
+infoFrame.Size = UDim2.new(1, 0, 0.8, 0)
+
+infoLabel.Parent = infoFrame
+infoLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+infoLabel.Position = UDim2.new(0, 0, 0.158, 0)
+infoLabel.Size = UDim2.new(1, 0, 0.4, 0)
+infoLabel.Font = Enum.Font.DenkOne  
+infoLabel.Text = "Status: Active"
+infoLabel.TextColor3 = Color3.new(0, 1, 1)
+infoLabel.TextSize = 20
+
+creditsLabel.Parent = infoFrame
+creditsLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+creditsLabel.Position = UDim2.new(0, 0, 0.6, 0)
+creditsLabel.Size = UDim2.new(1, 0, 0.4, 0)
+creditsLabel.Font = Enum.Font.DenkOne  
+creditsLabel.Text = "koji_xyz"
+creditsLabel.TextColor3 = Color3.new(0, 1, 1)
+creditsLabel.TextSize = 20
+
+local virtualUser = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:Connect(function()
+    virtualUser:CaptureController()
+    virtualUser:ClickButton2(Vector2.new())
+    infoLabel.Text = "The ops tried to kick you, so I shot them up!"
+    wait(2)
+    infoLabel.Text = "Status: Active"
+end)
