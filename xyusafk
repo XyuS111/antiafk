@@ -44,7 +44,7 @@ creditsLabel.BackgroundColor3 = Color3.new(0, 0, 0)
 creditsLabel.Position = UDim2.new(0, 0, 0.6, 0)
 creditsLabel.Size = UDim2.new(1, 0, 0.4, 0)
 creditsLabel.Font = Enum.Font.DenkOne  
-creditsLabel.Text = "koji_xyz"
+creditsLabel.Text = "WhyNot_XyuS"
 creditsLabel.TextColor3 = Color3.new(0, 1, 1)
 creditsLabel.TextSize = 20
 
